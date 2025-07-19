@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 31778e13fb89011a697e46f7908f126f
+guid: e165a58b56236f73ba4fd68e3ead87db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1068919580500922286
-    second: board-spritesheet-PLACEHOLDER_0
+      213: -64382271712471399
+    second: board_tiles_PLACEHOLDER_0
   - first:
-      213: -2196361476268798008
-    second: board-spritesheet-PLACEHOLDER_1
+      213: 8292189467975862275
+    second: board_tiles_PLACEHOLDER_1
   - first:
-      213: 1906589455539721867
-    second: board-spritesheet-PLACEHOLDER_2
+      213: -5882800580813564995
+    second: board_tiles_PLACEHOLDER_2
   - first:
-      213: 8340654093500239451
-    second: board-spritesheet-PLACEHOLDER_3
+      213: -9169061125267999817
+    second: board_tiles_PLACEHOLDER_3
   - first:
-      213: -6776935299103432091
-    second: board-spritesheet-PLACEHOLDER_4
+      213: 795961381518588771
+    second: board_tiles_PLACEHOLDER_4
   - first:
-      213: 3314874630175530365
-    second: board-spritesheet-PLACEHOLDER_5
+      213: -9151077447592255668
+    second: board_tiles_PLACEHOLDER_5
+  - first:
+      213: 8308075113835485467
+    second: board_tiles_PLACEHOLDER_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_0
+      name: board_tiles_PLACEHOLDER_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eaf8731f1b095de00800000000000000
-      internalID: 1068919580500922286
+      spriteID: 996debc3aa44b1ff0800000000000000
+      internalID: -64382271712471399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_1
+      name: board_tiles_PLACEHOLDER_1
       rect:
         serializedVersion: 2
         x: 9
@@ -165,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cf45a8cfd4f481e0800000000000000
-      internalID: -2196361476268798008
+      spriteID: 308cfe02366c31370800000000000000
+      internalID: 8292189467975862275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_2
+      name: board_tiles_PLACEHOLDER_2
       rect:
         serializedVersion: 2
         x: 18
@@ -187,14 +190,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b8653fd1201957a10800000000000000
-      internalID: 1906589455539721867
+      spriteID: db355284a081c5ea0800000000000000
+      internalID: -5882800580813564995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_3
+      name: board_tiles_PLACEHOLDER_3
       rect:
         serializedVersion: 2
         x: 27
@@ -209,14 +212,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5e4d7515b4ffb370800000000000000
-      internalID: 8340654093500239451
+      spriteID: 7b3be808c73f0c080800000000000000
+      internalID: -9169061125267999817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_4
+      name: board_tiles_PLACEHOLDER_4
       rect:
         serializedVersion: 2
         x: 36
@@ -231,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 562622f404d73f1a0800000000000000
-      internalID: -6776935299103432091
+      spriteID: 36b3858c8a2db0b00800000000000000
+      internalID: 795961381518588771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_5
+      name: board_tiles_PLACEHOLDER_5
       rect:
         serializedVersion: 2
         x: 45
@@ -253,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7d1196c9ecc00e20800000000000000
-      internalID: 3314874630175530365
+      spriteID: c4fdc20cb87d00180800000000000000
+      internalID: -9151077447592255668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_6
+      name: board_tiles_PLACEHOLDER_6
       rect:
         serializedVersion: 2
         x: 54
@@ -273,16 +276,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f696ab075a68c5532805cdb5d34b7b8c
-      internalID: 1908904929
+      spriteID: b195d674c463c4370800000000000000
+      internalID: 8308075113835485467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_7
+      name: board_tiles_PLACEHOLDER_7
       rect:
         serializedVersion: 2
         x: 63
@@ -297,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72ddb24c54cf9b414b07fd816370d0a5
-      internalID: -600423332
+      spriteID: 4d484d39e526f324099b25b00d7205fb
+      internalID: -1947408246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: board-spritesheet-PLACEHOLDER_8
+      name: board_tiles_PLACEHOLDER_8
       rect:
         serializedVersion: 2
         x: 72
@@ -319,8 +322,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bb2550ce2cb5db10b53c68fcb9aa6ac
-      internalID: 986456059
+      spriteID: ac6e598841841013d9be30faa4733519
+      internalID: 1931076141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: board_tiles_PLACEHOLDER_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1037d6ba3f8dad8190c04d34d941a53
+      internalID: 800866263
       vertices: []
       indices: 
       edges: []
@@ -329,7 +354,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37ebcfecc5c56693faebd9e8f728f275
+    spriteID: 296d7cdc214c8c07781f67127a443d42
     internalID: 0
     vertices: []
     indices: 
@@ -341,15 +366,16 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":9.0,"y":9.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      board-spritesheet-PLACEHOLDER_0: 1068919580500922286
-      board-spritesheet-PLACEHOLDER_1: -2196361476268798008
-      board-spritesheet-PLACEHOLDER_2: 1906589455539721867
-      board-spritesheet-PLACEHOLDER_3: 8340654093500239451
-      board-spritesheet-PLACEHOLDER_4: -6776935299103432091
-      board-spritesheet-PLACEHOLDER_5: 3314874630175530365
-      board-spritesheet-PLACEHOLDER_6: 1908904929
-      board-spritesheet-PLACEHOLDER_7: -600423332
-      board-spritesheet-PLACEHOLDER_8: 986456059
+      board_tiles_PLACEHOLDER_0: -64382271712471399
+      board_tiles_PLACEHOLDER_1: 8292189467975862275
+      board_tiles_PLACEHOLDER_2: -5882800580813564995
+      board_tiles_PLACEHOLDER_3: -9169061125267999817
+      board_tiles_PLACEHOLDER_4: 795961381518588771
+      board_tiles_PLACEHOLDER_5: -9151077447592255668
+      board_tiles_PLACEHOLDER_6: 8308075113835485467
+      board_tiles_PLACEHOLDER_7: -1947408246
+      board_tiles_PLACEHOLDER_8: 1931076141
+      board_tiles_PLACEHOLDER_9: 800866263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
