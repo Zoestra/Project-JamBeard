@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41537a49d082afb4795db668b2ff9b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Board_Size: 0
+  Board_Size: 19
 --- !u!1 &512459230
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 512459231}
   - component: {fileID: 512459233}
   - component: {fileID: 512459232}
+  - component: {fileID: 512459234}
   m_Layer: 0
   m_Name: Board_Tilemap
   m_TagString: Untagged
@@ -358,7 +359,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 3cf59113af25e677ead0a524915f9afe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -485,6 +486,29 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &512459234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512459230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51237854ef499eb9fa69c1d61d1a61f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridTiles:
+  - {fileID: 11400000, guid: 362f5c6329bc3088bbf7371d67a61a5a, type: 2}
+  - {fileID: 11400000, guid: e9a5d748a55405c678d254e970e4b581, type: 2}
+  - {fileID: 11400000, guid: ce0eadf4cdb9af8db8723bc3280de14d, type: 2}
+  - {fileID: 11400000, guid: 0f9af813fd3ebb34a978fbd3ebebaaf4, type: 2}
+  - {fileID: 11400000, guid: 9b48324fb0dac0029ae00fe799b1a075, type: 2}
+  - {fileID: 11400000, guid: 19b71f60bc9c0479d8518bfd40d0147b, type: 2}
+  - {fileID: 11400000, guid: 1f2493b90bfebc4bc9ef849aa89bc068, type: 2}
+  - {fileID: 11400000, guid: a5ebc3b36868b7dfaaf2ae5ee13e78c2, type: 2}
+  - {fileID: 11400000, guid: fb5b3d5877548ca84ab102b500e8bd8c, type: 2}
+  - {fileID: 11400000, guid: c15e18ebe194d970a9fd4de914bbdf5b, type: 2}
 --- !u!1 &1604479441
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +540,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 512459231}
+  - {fileID: 1909465884}
   m_Father: {fileID: 487483951}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &1604479443
@@ -530,6 +555,37 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &1909465883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909465884}
+  m_Layer: 0
+  m_Name: Stone_Tilemap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909465884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909465883}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1604479442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

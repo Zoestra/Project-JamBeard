@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 13
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,19 +125,19 @@ TextureImporter:
       name: gotiles_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 30
-        height: 8
+        width: 13
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f55f1ae5795633420800000000000000
+      spriteID: 699061fc9523939eba81c73f36ef0933
       internalID: 2608540309979788639
       vertices: []
       indices: 
@@ -147,9 +147,9 @@ TextureImporter:
       name: gotiles_1
       rect:
         serializedVersion: 2
-        x: 44
+        x: 13
         y: 0
-        width: 30
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,9 +157,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0990c3d0847eb8ab0800000000000000
+      spriteID: e3b15bc4b034e3c67a3b09f7099374bc
       internalID: -5004652264246474352
       vertices: []
       indices: 
@@ -169,9 +169,9 @@ TextureImporter:
       name: gotiles_2
       rect:
         serializedVersion: 2
-        x: 77
+        x: 26
         y: 0
-        width: 15
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -179,9 +179,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 365e2003f05c8e710800000000000000
+      spriteID: d27afcf24cf9771b68d028b4fd63bf9b
       internalID: 1722843526489892195
       vertices: []
       indices: 
@@ -191,20 +191,152 @@ TextureImporter:
       name: gotiles_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 4
-        width: 30
-        height: 9
+        x: 39
+        y: 0
+        width: 13
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f43f7e525623f2af0800000000000000
+      spriteID: 2081f5be2133bd6e2bcfe6dbec8634dd
       internalID: -419060830313122993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotiles_4
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64efcec40d13b1fca2e4fb3488f73df
+      internalID: 483074464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotiles_5
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf8a6c4e70e8552bb38129b30fb09bf
+      internalID: -581082424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotiles_6
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b6c93e97c35210dbd5aa4bc448cbac
+      internalID: -1323823768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotiles_7
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4311b7ac6fa3592eca2d2340248a28a2
+      internalID: -174305396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotiles_8
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ee26837e12b63749c3851e58857aed
+      internalID: -1512611923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotiles_9
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0930e91fd5060dbdfad5a4bf3715dcf1
+      internalID: -1864289347
       vertices: []
       indices: 
       edges: []
@@ -213,7 +345,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 51643499dce315bd3800aece377af929
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +353,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":13.0,"y":13.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       gotiles_0: 2608540309979788639
       gotiles_1: -5004652264246474352
       gotiles_2: 1722843526489892195
       gotiles_3: -419060830313122993
+      gotiles_4: 483074464
+      gotiles_5: -581082424
+      gotiles_6: -1323823768
+      gotiles_7: -174305396
+      gotiles_8: -1512611923
+      gotiles_9: -1864289347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

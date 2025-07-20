@@ -13,14 +13,8 @@ public class GameBoard : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-
-    public bool Place_Stone(Vector2 target, int player){ /// player: 0=white, 1=black
+    public bool Place_Stone(Vector2 target, int player){ // player: 0=white, 1=black
         if (Board_State.ContainsKey(target)){
             return false;
         }
@@ -29,7 +23,9 @@ public class GameBoard : MonoBehaviour
         }
         else{
             Board_State.Add(target, (BoardCell)player);
+            //todo place stone tile
             return true;
         }
+
     }
 }
