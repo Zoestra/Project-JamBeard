@@ -66,5 +66,8 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
     },
-    "dotnet.defaultSolution": "Project JamBeard.sln"
+    "dotnet.defaultSolution": "Project JamBeard.sln",
+    "cSpell.ignoreWords": [
+        "tilemap"
+    ]
 }
