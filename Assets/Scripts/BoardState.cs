@@ -1,7 +1,8 @@
+
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameBoard : MonoBehaviour
+public class BoardState: MonoBehaviour
 {
     public int Board_Size = 19;
     public enum BoardCell{white, black, destroyed}

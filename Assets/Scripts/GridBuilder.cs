@@ -32,7 +32,7 @@ public class GridBuilder : MonoBehaviour
 
     void DrawGrid()
     {
-        int boardSize = GameObject.Find("GameBoard").GetComponent<GameBoard>().Board_Size;
+        int boardSize = GameObject.FindWithTag("GameController").GetComponent<BoardState>().Board_Size;
         Tilemap tilemap = GetComponentInParent<Tilemap>();
         
         int max  = boardSize / 2;
@@ -84,8 +84,6 @@ public class GridBuilder : MonoBehaviour
                             tilemap.SetTile(new Vector3Int(x,y,0), TileDict["star"]);
                         }
                     }
-
-
                 }
 
                 // right edge
@@ -104,14 +102,8 @@ public class GridBuilder : MonoBehaviour
                         tilemap.SetTile(new Vector3Int(x,y,0), TileDict["Redge"]);
                     }
                 }
-
-               
-                
             }
         }
-
-        
-
     }
 
     void DrawVoids()
