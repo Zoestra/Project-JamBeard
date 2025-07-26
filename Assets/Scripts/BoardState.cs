@@ -8,13 +8,9 @@ using UnityEngine.Tilemaps;
 public enum BoardCell{white, black, destroyed}
 public class BoardState: MonoBehaviour
 {
-    public int board_size = 19;
+    private List<int> _BoardSizes = new(){9, 13, 19, 31};
+    private int _board_size = 2;
     public Dictionary<Vector3Int, BoardCell> board_state = new();
-
-    [SerializeField]
-    public List<Tile> StoneTiles;
-
-    public int current_player = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,7 +31,7 @@ public class BoardState: MonoBehaviour
 
     public bool Place_Stone(Vector3Int target, int input_player)
     { // player: 0=white, 1=black
-        int boardSize = board_size;
+        int boardSize = getBoardSize();
         int max = boardSize / 2;
         int min = -max;
         if (target.x < min || target.x > max || target.y < min || target.y > max)
@@ -54,26 +50,47 @@ public class BoardState: MonoBehaviour
         {
             Debug.Log("valid location, placing stone at " + target);
             board_state.Add(target, (BoardCell)input_player);
-            //todo place stone tile
-            Tilemap tilemap = GameObject.Find("Stone_Tilemap").GetComponent<Tilemap>();
-            tilemap.SetTile(target, StoneTiles[input_player]);
+            GameObject.Find("Stone_Tilemap").GetComponent<DrawStones>().place_stone(
+                target, input_player);
             return true;
         }
 
     }
 
-    // private Vector2Int quantize_input(Vector3Int input)
-    // {
-    //     Vector2Int target = new()
-    //     {
-    //         y = (int)MathF.Round(input.y),
-    //         x = (int)MathF.Round(input.x)
-    //     };
+    public int getBoardSize()
+    {
+        return _BoardSizes[_board_size];
+    }
 
-    //     return target;
-    // }
+    public bool increaseBoardSize()
+    {
+        if (_board_size < 3)
+        {
+            _board_size++;
+            Debug.Log("Increased board size");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Cant increase board size past 31");
+            return false;
+        }
+    }
 
-
+    public bool reduceBoardSize()
+    {
+        if (_board_size > 1)
+        {
+            _board_size--;
+            Debug.Log("Reduced board size");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Cant reduce board size lower than 9");
+            return false;
+        }
+    }
 
     private void invalid_selection()
     {

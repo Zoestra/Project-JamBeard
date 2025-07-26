@@ -8,23 +8,10 @@ public class DrawStones : MonoBehaviour
     
     [SerializeField]
     public List<Tile> StoneTiles;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void place_stone(Vector3Int target, int player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void place_stone(Vector2Int key, int player)
-    {
-
-        
+        Tilemap tilemap = GameObject.Find("Stone_Tilemap").GetComponent<Tilemap>();
+        tilemap.SetTile(target, StoneTiles[player]);
     }
 
 
