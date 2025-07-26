@@ -33,7 +33,7 @@ public class BoardState : MonoBehaviour
     }
 
 
-    public void Place_Stone(Vector3Int target, int input_player)
+    public bool Place_Stone(Vector3Int target, int input_player)
     { // player: 0=white, 1=black
         int boardSize = GameObject.FindWithTag("GameController").GetComponent<BoardState>().board_size;
         int max = boardSize / 2;
@@ -42,12 +42,13 @@ public class BoardState : MonoBehaviour
         {
             Debug.Log("Out of bounds: " + target);
             invalid_selection();
-            return;
+            return false;
         }
 
         if (board_state.ContainsKey(target))
         {
             invalid_selection();
+            return false;
         }
         else
         {
@@ -56,7 +57,9 @@ public class BoardState : MonoBehaviour
             //todo place stone tile
             Tilemap tilemap = GameObject.Find("Stone_Tilemap").GetComponent<Tilemap>();
             tilemap.SetTile(target, StoneTiles[input_player]);
+            return true;
         }
+
     }
 
     // private Vector2Int quantize_input(Vector3Int input)

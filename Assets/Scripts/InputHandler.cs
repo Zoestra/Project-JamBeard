@@ -6,7 +6,9 @@ using UnityEngine.Tilemaps;
 public class InputHandler : MonoBehaviour
 {
     private Grid grid; 
-        Tilemap tilemap;  
+    Tilemap tilemap;
+    Vector3Int previousTilePos;
+    public Tile HoverTile;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,18 +37,27 @@ public class InputHandler : MonoBehaviour
 
             Debug.Log("input recieved at" + target);
 
-            
+
             GameManager gameManager = gameObject.GetComponent<GameManager>();
             gameManager.TakeTurnMove(target);
-            
-            
-            
+
+
+
             // if clicked in board
-                    //
+            //
 
             // if clicked outside of board
 
 
         }
+        Vector3Int mousePos = tilemap.WorldToCell(
+            Camera.main.ScreenToWorldPoint(Input.mousePosition)
+        );
+        if (!mousePos.Equals(previousTilePos)) {
+            tilemap.SetTile(previousTilePos, null); // Remove old hoverTile
+            tilemap.SetTile(mousePos, HoverTile);
+            previousTilePos = mousePos;
+        }
+
     }
 }

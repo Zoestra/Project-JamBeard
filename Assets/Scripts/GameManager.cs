@@ -38,34 +38,37 @@ public class GameManager : MonoBehaviour
 
     public void TakeTurnMove(Vector3Int moveTarget)
     {
-        _boardState.Place_Stone(moveTarget, (int)current_players_turn);
+        if (!_boardState.Place_Stone(moveTarget, (int)current_players_turn))
+        {
+            return;
+        }
 
         if (CheckWin())
-        {
-            if (current_players_turn == PlayerStoneColor.BLACK)
             {
-                _turnDisplay.text = "Black Wins!";
+                if (current_players_turn == PlayerStoneColor.BLACK)
+                {
+                    _turnDisplay.text = "Black Wins!";
+                }
+                else
+                {
+                    _turnDisplay.text = "White Wins!";
+                }
+                _boardState.ResetBoard();
             }
             else
             {
-                _turnDisplay.text = "White Wins!";
+                // Change player's turn after the move
+                if (current_players_turn == PlayerStoneColor.BLACK)
+                {
+                    current_players_turn = PlayerStoneColor.WHITE;
+                    _turnDisplay.text = "White";
+                }
+                else
+                {
+                    current_players_turn = PlayerStoneColor.BLACK;
+                    _turnDisplay.text = "Black";
+                }
             }
-            _boardState.ResetBoard();
-        }
-        else
-        {
-            // Change player's turn after the move
-            if (current_players_turn == PlayerStoneColor.BLACK)
-            {
-                current_players_turn = PlayerStoneColor.WHITE;
-                _turnDisplay.text = "White";
-            }
-            else
-            {
-                current_players_turn = PlayerStoneColor.BLACK;
-                _turnDisplay.text = "Black";
-            }
-        }
     }
 
     private bool CheckWin()
