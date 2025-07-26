@@ -36,8 +36,9 @@ public class InputHandler : MonoBehaviour
             Debug.Log("input recieved at" + target);
 
             
+            GameManager gameManager = gameObject.GetComponent<GameManager>();
+            gameManager.TakeTurnMove(target);
             
-            gameObject.GetComponent<BoardState>().Place_Stone(target);
             
             
             // if clicked in board

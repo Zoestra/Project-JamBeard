@@ -5,10 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class BoardState: MonoBehaviour
+public class BoardState : MonoBehaviour
 {
     public int board_size = 19;
-    public enum BoardCell{white, black, destroyed}
+    public enum BoardCell { white, black, destroyed }
     public Dictionary<Vector3Int, BoardCell> board_state = new();
 
     [SerializeField]
@@ -19,14 +19,25 @@ public class BoardState: MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-    }
-    
 
-    public void Place_Stone(Vector3Int target){ // player: 0=white, 1=black
+    }
+
+    public void ResetBoard()
+    {
+        Tilemap tilemap = GameObject.Find("Stone_Tilemap").GetComponent<Tilemap>();
+        foreach (Vector3Int key in board_state.Keys)
+        {
+            tilemap.SetTile(key, null);
+        }
+        board_state = new();
+    }
+
+
+    public void Place_Stone(Vector3Int target, int input_player)
+    { // player: 0=white, 1=black
         int boardSize = GameObject.FindWithTag("GameController").GetComponent<BoardState>().board_size;
-        int max  = boardSize / 2;
-        int min  = -max;
+        int max = boardSize / 2;
+        int min = -max;
         if (target.x < min || target.x > max || target.y < min || target.y > max)
         {
             Debug.Log("Out of bounds: " + target);
@@ -41,20 +52,10 @@ public class BoardState: MonoBehaviour
         else
         {
             Debug.Log("valid location, placing stone at " + target);
-            board_state.Add(target, (BoardCell)current_player);
+            board_state.Add(target, (BoardCell)input_player);
             //todo place stone tile
             Tilemap tilemap = GameObject.Find("Stone_Tilemap").GetComponent<Tilemap>();
-            tilemap.SetTile(target, StoneTiles[current_player]);
-
-            if (current_player == 0)
-            {
-                current_player = 1;
-            }
-            else
-            {
-                current_player = 0;
-            }
-
+            tilemap.SetTile(target, StoneTiles[input_player]);
         }
     }
 
