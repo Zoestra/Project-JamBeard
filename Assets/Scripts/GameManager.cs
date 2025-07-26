@@ -22,12 +22,13 @@ public class GameManager : MonoBehaviour
 
     BoardState _boardState;
     PlayerStoneColor current_players_turn = PlayerStoneColor.BLACK;
-    TMP_Text _turnDisplay;
+    public string CurrentTurn;
+
     void Start()
     {
         _boardState = GameObject.Find("GameController").GetComponent<BoardState>();
-        _turnDisplay = GameObject.Find("TurnDisplayTMP").GetComponent<TMP_Text>();
-        _turnDisplay.text = "Black";
+        
+        CurrentTurn = "Black";
     }
 
     // Update is called once per frame
@@ -47,11 +48,11 @@ public class GameManager : MonoBehaviour
             {
                 if (current_players_turn == PlayerStoneColor.BLACK)
                 {
-                    _turnDisplay.text = "Black Wins!";
+                    CurrentTurn = "Black Wins!";
                 }
                 else
                 {
-                    _turnDisplay.text = "White Wins!";
+                    CurrentTurn = "White Wins!";
                 }
                 _boardState.ResetBoard();
             }
@@ -61,12 +62,12 @@ public class GameManager : MonoBehaviour
                 if (current_players_turn == PlayerStoneColor.BLACK)
                 {
                     current_players_turn = PlayerStoneColor.WHITE;
-                    _turnDisplay.text = "White";
+                    CurrentTurn = "White";
                 }
                 else
                 {
                     current_players_turn = PlayerStoneColor.BLACK;
-                    _turnDisplay.text = "Black";
+                    CurrentTurn = "Black";
                 }
             }
     }
@@ -136,6 +137,57 @@ public class GameManager : MonoBehaviour
                 Vector3Int potentialKey = new();
                 potentialKey.x = key.x + k;
                 potentialKey.y = key.y + k;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                return true;
+            }
+            counter = 0;
+            for (int k = 0; k < 5; k++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x - k;
+                potentialKey.y = key.y - k;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                return true;
+            }
+            counter = 0;
+            for (int k = 0; k < 5; k++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x - k;
+                potentialKey.y = key.y + k;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                return true;
+            }
+            counter = 0;
+            for (int k = 0; k < 5; k++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x + k;
+                potentialKey.y = key.y - k;
                 potentialKey.z = key.z;
 
                 if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)

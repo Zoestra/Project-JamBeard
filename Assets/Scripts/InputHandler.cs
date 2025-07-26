@@ -9,12 +9,14 @@ public class InputHandler : MonoBehaviour
     Tilemap tilemap;
     Vector3Int previousTilePos;
     public Tile HoverTile;
+    BoardState _boardState;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         grid = GameObject.Find("GameBoard").GetComponent<Grid>();
         tilemap = GameObject.Find("Stone_Tilemap").GetComponent<Tilemap>();
+        _boardState = GameObject.Find("GameController").GetComponent<BoardState>();
     }
 
     // Update is called once per frame
@@ -40,24 +42,21 @@ public class InputHandler : MonoBehaviour
 
             GameManager gameManager = gameObject.GetComponent<GameManager>();
             gameManager.TakeTurnMove(target);
-
-
-
-            // if clicked in board
-            //
-
-            // if clicked outside of board
-
-
         }
+
         Vector3Int mousePos = tilemap.WorldToCell(
             Camera.main.ScreenToWorldPoint(Input.mousePosition)
         );
-        if (!mousePos.Equals(previousTilePos)) {
-            tilemap.SetTile(previousTilePos, null); // Remove old hoverTile
+        
+        if (!mousePos.Equals(previousTilePos) && !_boardState.board_state.ContainsKey(mousePos))
+        {
+            if (!_boardState.board_state.ContainsKey(previousTilePos))
+            {
+                tilemap.SetTile(previousTilePos, null); // Remove old hoverTile
+            }
+            
             tilemap.SetTile(mousePos, HoverTile);
             previousTilePos = mousePos;
         }
-
     }
 }
