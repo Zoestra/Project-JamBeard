@@ -30,7 +30,7 @@ public class InputHandler : MonoBehaviour
             {
                 y = (int)MathF.Round(mouse_input.y),
                 x = (int)MathF.Round(mouse_input.x),
-                z = 0
+                z = -1
             };
 
 
