@@ -35,7 +35,7 @@ public class BoardState: MonoBehaviour
 
     public bool Place_Stone(Vector3Int target, int input_player)
     { // player: 0=white, 1=black
-        int boardSize = GameObject.FindWithTag("GameController").GetComponent<BoardState>().board_size;
+        int boardSize = board_size;
         int max = boardSize / 2;
         int min = -max;
         if (target.x < min || target.x > max || target.y < min || target.y > max)

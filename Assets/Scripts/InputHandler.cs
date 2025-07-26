@@ -47,16 +47,32 @@ public class InputHandler : MonoBehaviour
         Vector3Int mousePos = tilemap.WorldToCell(
             Camera.main.ScreenToWorldPoint(Input.mousePosition)
         );
-        
-        if (!mousePos.Equals(previousTilePos) && !_boardState.board_state.ContainsKey(mousePos))
+
+        int boardSize = _boardState.board_size;
+        int max = boardSize / 2;
+        int min = -max;
+
+        if (mousePos.x < min || mousePos.x > max || mousePos.y < min || mousePos.y > max)
         {
-            if (!_boardState.board_state.ContainsKey(previousTilePos))
+            if (
+                !_boardState.board_state.ContainsKey(mousePos))
             {
-                tilemap.SetTile(previousTilePos, null); // Remove old hoverTile
+                tilemap.SetTile(previousTilePos, null); 
+                return;
             }
-            
-            tilemap.SetTile(mousePos, HoverTile);
-            previousTilePos = mousePos;
         }
+
+        if (
+                !mousePos.Equals(previousTilePos) &&
+                !_boardState.board_state.ContainsKey(mousePos))
+            {
+                if (!_boardState.board_state.ContainsKey(previousTilePos))
+                {
+                    tilemap.SetTile(previousTilePos, null); // Remove old hoverTile
+                }
+
+                tilemap.SetTile(mousePos, HoverTile);
+                previousTilePos = mousePos;
+            }
     }
 }
