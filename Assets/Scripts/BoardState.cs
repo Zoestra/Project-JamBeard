@@ -12,11 +12,6 @@ public class BoardState: MonoBehaviour
     private int _board_size = 2;
     public Dictionary<Vector3Int, BoardCell> board_state = new();
 
-    [SerializeField]
-    public List<Tile> StoneTiles;
-
-    public int current_player = 0;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -55,9 +50,8 @@ public class BoardState: MonoBehaviour
         {
             Debug.Log("valid location, placing stone at " + target);
             board_state.Add(target, (BoardCell)input_player);
-            //todo place stone tile
-            Tilemap tilemap = GameObject.Find("Stone_Tilemap").GetComponent<Tilemap>();
-            tilemap.SetTile(target, StoneTiles[input_player]);
+            GameObject.Find("Stone_Tilemap").GetComponent<DrawStones>().place_stone(
+                target, input_player);
             return true;
         }
 
