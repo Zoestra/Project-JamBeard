@@ -23,11 +23,12 @@ public class GameManager : MonoBehaviour
     BoardState _boardState;
     PlayerStoneColor current_players_turn = PlayerStoneColor.BLACK;
     public string CurrentTurn;
+    bool _gameOver = false;
 
     void Start()
     {
         _boardState = GameObject.Find("GameController").GetComponent<BoardState>();
-        
+
         CurrentTurn = "Black";
     }
 
@@ -39,37 +40,42 @@ public class GameManager : MonoBehaviour
 
     public void TakeTurnMove(Vector3Int moveTarget)
     {
+        if (_gameOver)
+        {
+            return;
+        }
         if (!_boardState.Place_Stone(moveTarget, (int)current_players_turn))
         {
             return;
         }
 
         if (CheckWin())
+        {
+            if (current_players_turn == PlayerStoneColor.BLACK)
             {
-                if (current_players_turn == PlayerStoneColor.BLACK)
-                {
-                    CurrentTurn = "Black Wins!";
-                }
-                else
-                {
-                    CurrentTurn = "White Wins!";
-                }
-                _boardState.ResetBoard();
+                CurrentTurn = "Black Wins!";
             }
             else
             {
-                // Change player's turn after the move
-                if (current_players_turn == PlayerStoneColor.BLACK)
-                {
-                    current_players_turn = PlayerStoneColor.WHITE;
-                    CurrentTurn = "White";
-                }
-                else
-                {
-                    current_players_turn = PlayerStoneColor.BLACK;
-                    CurrentTurn = "Black";
-                }
+                CurrentTurn = "White Wins!";
             }
+            _gameOver = true;
+            return;
+        }
+        else
+        {
+            // Change player's turn after the move
+            if (current_players_turn == PlayerStoneColor.BLACK)
+            {
+                current_players_turn = PlayerStoneColor.WHITE;
+                CurrentTurn = "White";
+            }
+            else
+            {
+                current_players_turn = PlayerStoneColor.BLACK;
+                CurrentTurn = "Black";
+            }
+        }
     }
 
     private bool CheckWin()
@@ -201,5 +207,26 @@ public class GameManager : MonoBehaviour
             }
         }
         return false;
+    }
+    public void ResetGame()
+    {
+        CurrentTurn = "Black";
+        _boardState.ResetBoard();
+        _gameOver = false;
+    }
+
+    public void PlayPowerup()
+    {
+            // Change player's turn after the move
+            if (current_players_turn == PlayerStoneColor.BLACK)
+            {
+                current_players_turn = PlayerStoneColor.WHITE;
+                CurrentTurn = "White";
+            }
+            else
+            {
+                current_players_turn = PlayerStoneColor.BLACK;
+                CurrentTurn = "Black";
+            }
     }
 }
