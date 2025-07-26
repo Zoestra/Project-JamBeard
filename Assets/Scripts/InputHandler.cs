@@ -5,17 +5,29 @@ using UnityEngine.Tilemaps;
 public class InputHandler : MonoBehaviour
 {
 
-    public List<Tile> StoneTiles;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            //get position
+            Vector3 LastClicked = Input.mousePosition;
+            LastClicked.z = 0;
+            
+            gameObject.GetComponent<BoardState>().Place_Stone(LastClicked);
+            
+            
+            // if clicked in board
+                    //
+
+            // if clicked outside of board
+
+
+        }
     }
 }

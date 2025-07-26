@@ -9,7 +9,6 @@ public class GridBuilder : MonoBehaviour
 {
     public List<Tile> GridTiles;
 
-    [SerializeField]
     public Dictionary<String, Tile> TileDict;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,7 +33,7 @@ public class GridBuilder : MonoBehaviour
 
     void DrawGrid()
     {
-        int boardSize = GameObject.FindWithTag("GameController").GetComponent<BoardState>().Board_Size;
+        int boardSize = GameObject.FindWithTag("GameController").GetComponent<BoardState>().board_size;
         Tilemap tilemap = GetComponentInParent<Tilemap>();
         
         int max  = boardSize / 2;

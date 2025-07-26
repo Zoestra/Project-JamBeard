@@ -1,32 +1,32 @@
 
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BoardState: MonoBehaviour
 {
-    public int Board_Size = 19;
+    public int board_size = 19;
     public enum BoardCell{white, black, destroyed}
-    public Dictionary<Vector2, BoardCell> Board_State;
+    public Dictionary<Vector2, BoardCell> board_state;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
+    
 
-
-    public bool Place_Stone(Vector2 target, int player){ // player: 0=white, 1=black
-        if (Board_State.ContainsKey(target)){
+    public bool Place_Stone(Vector3 target){ // player: 0=white, 1=black
+        if (board_state.ContainsKey(target)){
             return false;
         }
-        else if(target.x > Board_Size-1 || target.y > Board_Size-1){
+        else if(target.x > board_size-1 || target.y > board_size-1){
             return false;
         }
         else{
-            Board_State.Add(target, (BoardCell)player);
+            board_state.Add(target, (BoardCell)player);
             //todo place stone tile
             return true;
         }
-
     }
 }
