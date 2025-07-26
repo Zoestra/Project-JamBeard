@@ -5,10 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class BoardState : MonoBehaviour
+public enum BoardCell{white, black, destroyed}
+public class BoardState: MonoBehaviour
 {
     public int board_size = 19;
-    public enum BoardCell { white, black, destroyed }
     public Dictionary<Vector3Int, BoardCell> board_state = new();
 
     [SerializeField]
