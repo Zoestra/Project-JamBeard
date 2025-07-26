@@ -8,6 +8,8 @@ using UnityEngine.Tilemaps;
 public class GridBuilder : MonoBehaviour
 {
     public List<Tile> GridTiles;
+
+    [SerializeField]
     public Dictionary<String, Tile> TileDict;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
