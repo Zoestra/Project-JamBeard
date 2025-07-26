@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0bb220da2027f2346aea099d1b4a55c2
+guid: 990bd6844a0558e4c886a7d31adae25e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5934658155875237581
-    second: restart_round_0
+      213: 6418811520740689640
+    second: white_stone_light 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: restart_round_0
+      name: white_stone_light 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dce715c46242c5250800000000000000
-      internalID: 5934658155875237581
+      spriteID: 8e60fedd113341950800000000000000
+      internalID: 6418811520740689640
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      restart_round_0: 5934658155875237581
+      white_stone_light 1_0: 6418811520740689640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
