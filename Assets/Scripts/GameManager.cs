@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public string CurrentTurn;
     bool _gameOver = false;
 
+    public int TurnNumber = 0;
+
     void Start()
     {
         _boardState = GameObject.Find("GameController").GetComponent<BoardState>();
@@ -64,6 +66,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            TurnNumber++;
+
             // Change player's turn after the move
             if (current_players_turn == PlayerStoneColor.BLACK)
             {
