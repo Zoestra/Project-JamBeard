@@ -31,7 +31,7 @@ public class BoardState: MonoBehaviour
 
     public bool Place_Stone(Vector3Int target, int input_player)
     { // player: 0=white, 1=black
-        int boardSize = board_size;
+        int boardSize = getBoardSize();
         int max = boardSize / 2;
         int min = -max;
         if (target.x < min || target.x > max || target.y < min || target.y > max)
@@ -86,11 +86,8 @@ public class BoardState: MonoBehaviour
             Debug.Log("Reduced board size");
             return true;
         }
-        else
-        {
-            Debug.Log("Cant reduce board size lower than 9");
-            return false;
-        }
+        Debug.Log("Cant reduce board size lower than 9");
+        return false;
     }
 
     private void invalid_selection()
@@ -116,19 +113,19 @@ public class BoardState: MonoBehaviour
                     switch (board_state[new Vector3Int{x = x, y = y, z = 0}])
                     {
                         case (BoardCell)0:
-                            boardString += "O";
+                            boardString += "O,";
                             break;
                         case (BoardCell)1:
-                            boardString += "X";
+                            boardString += "X,";
                             break;
                         case (BoardCell)2:
-                            boardString += "_";
+                            boardString += "_,";
                             break;
                     }
                 }
                 else
                 {
-                    boardString += "-";
+                    boardString += "-,";
                 }
             }
             boardString += "\n";

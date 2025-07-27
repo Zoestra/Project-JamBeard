@@ -25,20 +25,20 @@ public class ReduceBoard : MonoBehaviour
 
             foreach (var stone in input)
             {
-                if(stone.Key.x > min && stone.Key.y < max)
+                if(stone.Key.x >= min && stone.Key.y <= max)
                 {
-                    if(stone.Key.y > min && stone.Key.y < max)
+                    if(stone.Key.y >= min && stone.Key.y <= max)
                     {
                         output.Add(stone.Key, stone.Value);
                     }
                 }
             }
-        }
-        board.logBoard();
+
         tiles.redraw_stones();
+        return output;
+        }
         return input;
     }
-
 
 
     public void testReduce()
