@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnlargeBoard : MonoBehaviour
+public class ExpandBoard : MonoBehaviour
 {
     public Dictionary<Vector3Int, BoardCell> Expand(
         Dictionary<Vector3Int, BoardCell> input, int current_player)
