@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 public class ShuffleBoard : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,5 +71,8 @@ public class ShuffleBoard : MonoBehaviour
         }
         GameObject.Find("GameController").GetComponent<BoardState>().board_state = boardState.board_state;
         GameObject.Find("Stone_Tilemap").GetComponent<DrawStones>().redraw_stones();
+
+        gameManager.PlayPowerup();
+        gameObject.GetComponent<Image>().enabled = false;
     }
 }

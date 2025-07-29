@@ -48,7 +48,7 @@ public class InputHandler : MonoBehaviour
             Camera.main.ScreenToWorldPoint(Input.mousePosition)
         );
 
-        int boardSize = _boardState.board_size;
+        int boardSize = _boardState.getBoardSize();
         int max = boardSize / 2;
         int min = -max;
 

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class SwapColors : MonoBehaviour
 {
     public Dictionary<Vector3Int, BoardCell> SwapColor(
@@ -31,8 +32,10 @@ public class SwapColors : MonoBehaviour
         Debug.Log("swapping colors");
         Dictionary<Vector3Int, BoardCell> board_state = GameObject.Find("GameController").GetComponent<BoardState>().board_state;
         GameObject.Find("GameController").GetComponent<BoardState>().board_state = SwapColor(board_state, 0);
-        
+
         GameObject.Find("Stone_Tilemap").GetComponent<DrawStones>().redraw_stones();
+        gameObject.GetComponent<Image>().enabled = false;
+        GameObject.Find("GameController").GetComponent<GameManager>().PlayPowerup();
     }
 
 }
