@@ -92,8 +92,7 @@ public class BoardState: MonoBehaviour
 
     private void invalid_selection()
     {
-        //todo: idk, lol
-        Debug.Log("invalid location");
+        Debug.Log("outside the board");
     }
 
 

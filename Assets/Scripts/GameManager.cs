@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         if (_gameOver)
         {
+            Debug.Log("Disallow placing stones!");
             return;
         }
         if (!_boardState.Place_Stone(moveTarget, (int)current_players_turn))
@@ -56,10 +57,12 @@ public class GameManager : MonoBehaviour
             if (current_players_turn == PlayerStoneColor.BLACK)
             {
                 CurrentTurn = "Black Wins!";
+                Debug.Log("Black Wins!");
             }
             else
             {
                 CurrentTurn = "White Wins!";
+                Debug.Log("White Wins!");
             }
             _gameOver = true;
             return;
