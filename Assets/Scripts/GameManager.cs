@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     PlayerStoneColor current_players_turn = PlayerStoneColor.BLACK;
     public string CurrentTurn;
     bool _gameOver = false;
-
+    PlayerStoneColor? winningPlayer;
     public int TurnNumber = 0;
 
     void Start()
@@ -52,6 +52,188 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if (CheckWin())
+        {
+            _gameOver = true;
+            return;
+        }
+        else
+        {
+            TurnNumber++;
+
+            // Change player's turn after the move
+            if (current_players_turn == PlayerStoneColor.BLACK)
+            {
+                current_players_turn = PlayerStoneColor.WHITE;
+                CurrentTurn = "White";
+            }
+            else
+            {
+                current_players_turn = PlayerStoneColor.BLACK;
+                CurrentTurn = "Black";
+            }
+        }
+    }
+
+    private bool CheckWin()
+    {
+        if (CheckHorizontal() || CheckVertical() || CheckDiagonal())
+        {
+            if (winningPlayer == PlayerStoneColor.BLACK)
+            {
+                CurrentTurn = "Black Wins!";
+            }
+            else
+            {
+                winningPlayer = PlayerStoneColor.BLACK;
+                CurrentTurn = "White Wins!";
+            }
+            return true;
+        }
+        return false;
+    }
+    bool CheckHorizontal()
+    {
+        foreach (Vector3Int key in _boardState.board_state.Keys)
+        {
+            int counter = 0;
+            PlayerStoneColor player = (PlayerStoneColor)(int)_boardState.board_state[key];
+            for (int i = 0; i < 5; i++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x + i;
+                potentialKey.y = key.y;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                winningPlayer = player;
+                return true;
+            }
+        }
+        return false;
+    }
+    bool CheckVertical()
+    {
+        foreach (Vector3Int key in _boardState.board_state.Keys)
+        {
+            int counter = 0;
+            PlayerStoneColor player = (PlayerStoneColor)(int)_boardState.board_state[key];
+            for (int j = 0; j < 5; j++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x;
+                potentialKey.y = key.y + j;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                winningPlayer = player;
+                return true;
+            }
+        }
+        return false;
+    }
+    bool CheckDiagonal()
+    {
+        foreach (Vector3Int key in _boardState.board_state.Keys)
+        {
+            int counter = 0;
+            PlayerStoneColor player = (PlayerStoneColor)(int)_boardState.board_state[key];
+            for (int k = 0; k < 5; k++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x + k;
+                potentialKey.y = key.y + k;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                winningPlayer = player;
+                return true;
+            }
+            counter = 0;
+            for (int k = 0; k < 5; k++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x - k;
+                potentialKey.y = key.y - k;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                winningPlayer = player;
+                return true;
+            }
+            counter = 0;
+            for (int k = 0; k < 5; k++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x - k;
+                potentialKey.y = key.y + k;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                winningPlayer = player;
+                return true;
+            }
+            counter = 0;
+            for (int k = 0; k < 5; k++)
+            {
+                Vector3Int potentialKey = new();
+                potentialKey.x = key.x + k;
+                potentialKey.y = key.y - k;
+                potentialKey.z = key.z;
+
+                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 5)
+            {
+                winningPlayer = player;
+                return true;
+            }
+        }
+        return false;
+    }
+    public void ResetGame()
+    {
+        CurrentTurn = "Black";
+        _boardState.ResetBoard();
+        _gameOver = false;
+        winningPlayer = null;
+    }
+
+    public void PlayPowerup()
+    {
         if (CheckWin())
         {
             if (current_players_turn == PlayerStoneColor.BLACK)
@@ -83,157 +265,5 @@ public class GameManager : MonoBehaviour
                 CurrentTurn = "Black";
             }
         }
-    }
-
-    private bool CheckWin()
-    {
-        return CheckHorizontal() || CheckVertical() || CheckDiagonal();
-    }
-    bool CheckHorizontal()
-    {
-        foreach (Vector3Int key in _boardState.board_state.Keys)
-        {
-            int counter = 0;
-            PlayerStoneColor player = (PlayerStoneColor)(int)_boardState.board_state[key];
-            for (int i = 0; i < 5; i++)
-            {
-                Vector3Int potentialKey = new();
-                potentialKey.x = key.x + i;
-                potentialKey.y = key.y;
-                potentialKey.z = key.z;
-
-                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
-                {
-                    counter++;
-                }
-            }
-            if (counter == 5)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    bool CheckVertical()
-    {
-        foreach (Vector3Int key in _boardState.board_state.Keys)
-        {
-            int counter = 0;
-            PlayerStoneColor player = (PlayerStoneColor)(int)_boardState.board_state[key];
-            for (int j = 0; j < 5; j++)
-            {
-                Vector3Int potentialKey = new();
-                potentialKey.x = key.x;
-                potentialKey.y = key.y + j;
-                potentialKey.z = key.z;
-
-                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
-                {
-                    counter++;
-                }
-            }
-            if (counter == 5)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    bool CheckDiagonal()
-    {
-        foreach (Vector3Int key in _boardState.board_state.Keys)
-        {
-            int counter = 0;
-            PlayerStoneColor player = (PlayerStoneColor)(int)_boardState.board_state[key];
-            for (int k = 0; k < 5; k++)
-            {
-                Vector3Int potentialKey = new();
-                potentialKey.x = key.x + k;
-                potentialKey.y = key.y + k;
-                potentialKey.z = key.z;
-
-                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
-                {
-                    counter++;
-                }
-            }
-            if (counter == 5)
-            {
-                return true;
-            }
-            counter = 0;
-            for (int k = 0; k < 5; k++)
-            {
-                Vector3Int potentialKey = new();
-                potentialKey.x = key.x - k;
-                potentialKey.y = key.y - k;
-                potentialKey.z = key.z;
-
-                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
-                {
-                    counter++;
-                }
-            }
-            if (counter == 5)
-            {
-                return true;
-            }
-            counter = 0;
-            for (int k = 0; k < 5; k++)
-            {
-                Vector3Int potentialKey = new();
-                potentialKey.x = key.x - k;
-                potentialKey.y = key.y + k;
-                potentialKey.z = key.z;
-
-                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
-                {
-                    counter++;
-                }
-            }
-            if (counter == 5)
-            {
-                return true;
-            }
-            counter = 0;
-            for (int k = 0; k < 5; k++)
-            {
-                Vector3Int potentialKey = new();
-                potentialKey.x = key.x + k;
-                potentialKey.y = key.y - k;
-                potentialKey.z = key.z;
-
-                if (_boardState.board_state.ContainsKey(potentialKey) && (PlayerStoneColor)(int)_boardState.board_state[potentialKey] == player)
-                {
-                    counter++;
-                }
-            }
-            if (counter == 5)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    public void ResetGame()
-    {
-        CurrentTurn = "Black";
-        _boardState.ResetBoard();
-        _gameOver = false;
-    }
-
-    public void PlayPowerup()
-    {
-            // Change player's turn after the move
-            if (current_players_turn == PlayerStoneColor.BLACK)
-            {
-                current_players_turn = PlayerStoneColor.WHITE;
-                CurrentTurn = "White";
-            }
-            else
-            {
-                current_players_turn = PlayerStoneColor.BLACK;
-                CurrentTurn = "Black";
-            }
     }
 }
