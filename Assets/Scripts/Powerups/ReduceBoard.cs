@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReduceBoard : MonoBehaviour
 {
     public Dictionary<Vector3Int, BoardCell> Reduce(
-        Dictionary<Vector3Int, BoardCell> input, int current_player)
+        Dictionary<Vector3Int, BoardCell> input)
     {
         Dictionary<Vector3Int, BoardCell> output = new();
 
@@ -35,18 +36,20 @@ public class ReduceBoard : MonoBehaviour
             }
 
         tiles.redraw_stones();
+        GameObject.Find("GameController").GetComponent<GameManager>().PlayPowerup();
         return output;
         }
         return input;
     }
 
 
-    public void testReduce()
+    public void onClick()
     {
         Debug.Log("Retract Dong");
         Dictionary<Vector3Int, BoardCell> board_state = GameObject.Find("GameController").GetComponent<BoardState>().board_state;
-        GameObject.Find("GameController").GetComponent<BoardState>().board_state = Reduce(board_state, 0);
-        GameObject.Find("Stone_Tilemap").GetComponent<DrawStones>().redraw_stones();
+        GameObject.Find("GameController").GetComponent<BoardState>().board_state = Reduce(board_state);
+        GameObject.Find("GameController").GetComponent<PowerupManager>().cleanup();
+        gameObject.GetComponent<Image>().enabled = false;
     }
 
 

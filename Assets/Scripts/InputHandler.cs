@@ -5,23 +5,32 @@ using UnityEngine.Tilemaps;
 
 public class InputHandler : MonoBehaviour
 {
-    private Grid grid; 
-    Tilemap tilemap;
-    Vector3Int previousTilePos;
+    private Vector3Int previousTilePos;
     public Tile HoverTile;
-    BoardState _boardState;
+    public List<Tile> HoverTiles;
+
+    private Tilemap tilemap;
+    private Grid grid; 
+    private BoardState _board;
+    private PowerupManager _power_man;
+    private GameManager _gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         grid = GameObject.Find("GameBoard").GetComponent<Grid>();
         tilemap = GameObject.Find("Stone_Tilemap").GetComponent<Tilemap>();
-        _boardState = GameObject.Find("GameController").GetComponent<BoardState>();
+        _board = gameObject.GetComponent<BoardState>();
+        _power_man = gameObject.GetComponent<PowerupManager>();
+        _gameManager = gameObject.GetComponent<GameManager>();
+
+        HoverTile = HoverTiles[1];
     }
 
     // Update is called once per frame
     void Update()
     {
+        // on click
         if (Input.GetMouseButtonDown(0))
         {
             //get position
@@ -35,26 +44,32 @@ public class InputHandler : MonoBehaviour
             };
 
 
-
             Debug.Log("input recieved at" + target);
 
-
-            GameManager gameManager = gameObject.GetComponent<GameManager>();
-            gameManager.TakeTurnMove(target);
+            if (_power_man.waiting_for_powerup)
+            {
+                 _power_man.PlacePowerup(target);   
+            }
+            else
+            {
+                _gameManager.TakeTurnMove(target);
+            }
         }
+
+        // on hover
 
         Vector3Int mousePos = tilemap.WorldToCell(
             Camera.main.ScreenToWorldPoint(Input.mousePosition)
         );
 
-        int boardSize = _boardState.getBoardSize();
+        int boardSize = _board.getBoardSize();
         int max = boardSize / 2;
         int min = -max;
 
         if (mousePos.x < min || mousePos.x > max || mousePos.y < min || mousePos.y > max)
         {
             if (
-                !_boardState.board_state.ContainsKey(mousePos))
+                !_board.board_state.ContainsKey(mousePos))
             {
                 tilemap.SetTile(previousTilePos, null); 
                 return;
@@ -63,9 +78,9 @@ public class InputHandler : MonoBehaviour
 
         if (
                 !mousePos.Equals(previousTilePos) &&
-                !_boardState.board_state.ContainsKey(mousePos))
+                !_board.board_state.ContainsKey(mousePos))
             {
-                if (!_boardState.board_state.ContainsKey(previousTilePos))
+                if (!_board.board_state.ContainsKey(previousTilePos))
                 {
                     tilemap.SetTile(previousTilePos, null); // Remove old hoverTile
                 }
@@ -73,5 +88,28 @@ public class InputHandler : MonoBehaviour
                 tilemap.SetTile(mousePos, HoverTile);
                 previousTilePos = mousePos;
             }
+    }
+
+    public void SwapHoverTiles()
+    {
+        switch (_gameManager.current_players_turn)
+        {
+            case PlayerStoneColor.WHITE:
+                HoverTile = HoverTiles[0];
+                break;
+          
+            case PlayerStoneColor.BLACK:
+                HoverTile = HoverTiles[1];
+                break;  
+        }
+
+        // if (_gameManager.CurrentTurn == "WHITE")
+        // {
+        //     HoverTile = HoverTiles[0];
+        // }
+        // else if (_gameManager.CurrentTurn == "BLACK")
+        // {
+        //     HoverTile = HoverTiles[1];
+        // }
     }
 }
