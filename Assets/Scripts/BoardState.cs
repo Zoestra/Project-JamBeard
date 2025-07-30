@@ -52,6 +52,7 @@ public class BoardState: MonoBehaviour
             board_state.Add(target, (BoardCell)input_player);
             GameObject.Find("Stone_Tilemap").GetComponent<DrawStones>().place_stone(
                 target, input_player);
+            logBoard();
             return true;
         }
 
@@ -79,21 +80,55 @@ public class BoardState: MonoBehaviour
 
     public bool reduceBoardSize()
     {
-        if (_board_size > 1)
+        if (_board_size > 0)
         {
             _board_size--;
             Debug.Log("Reduced board size");
             return true;
         }
-        else
-        {
-            Debug.Log("Cant reduce board size lower than 9");
-            return false;
-        }
+        Debug.Log("Cant reduce board size lower than 9");
+        return false;
     }
 
     private void invalid_selection()
     {
         Debug.Log("outside the board");
+    }
+
+
+    public void logBoard()
+    {
+        String boardString = "";
+
+        int max  = getBoardSize() / 2;
+        int min  = -max;
+
+        for (int y = max; y > min; y--)
+        {
+            for (int x = min; x < max; x++)
+            {
+                if (board_state.ContainsKey(new Vector3Int{x = x, y = y, z = 0}))
+                {
+                    switch (board_state[new Vector3Int{x = x, y = y, z = 0}])
+                    {
+                        case (BoardCell)0:
+                            boardString += "O,";
+                            break;
+                        case (BoardCell)1:
+                            boardString += "X,";
+                            break;
+                        case (BoardCell)2:
+                            boardString += "_,";
+                            break;
+                    }
+                }
+                else
+                {
+                    boardString += "-,";
+                }
+            }
+            boardString += "\n";
+        }
+        Debug.Log("Current board state: \n" + boardString);
     }
 }

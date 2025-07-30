@@ -31,8 +31,7 @@ public class InputHandler : MonoBehaviour
             Vector3Int target = new()
             {
                 y = (int)MathF.Round(mouse_input.y),
-                x = (int)MathF.Round(mouse_input.x),
-                z = -1
+                x = (int)MathF.Round(mouse_input.x)
             };
 
 

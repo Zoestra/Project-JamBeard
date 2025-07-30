@@ -9,10 +9,18 @@ public class ExpandBoard : MonoBehaviour
         BoardState board = GameObject.Find("GameController").GetComponent<BoardState>();
         GridBuilder grid = GameObject.Find("Board_Tilemap").GetComponent<GridBuilder>();
         Camera camera    = GameObject.Find("Main Camera").GetComponent<Camera>();
-
-        board.increaseBoardSize();
-        grid.redrawGrid();
-        camera.orthographicSize = 17;
+        if(board.increaseBoardSize())
+        {
+            grid.redrawGrid();
+            if(camera.orthographicSize == 10)
+            {
+                camera.orthographicSize = 17;
+            }
+            else
+            {
+                camera.orthographicSize += 2;
+            }
+        }
         return input;
     }
 
