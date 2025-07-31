@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using System.Collections.Generic;
 public enum PlayerStoneColor
 {
     WHITE,
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     bool _gameOver = false;
     PlayerStoneColor? winningPlayer;
     public int TurnNumber = 0;
-
+    
     InputHandler _input_handler;
 
     void Start()
@@ -271,5 +272,6 @@ public class GameManager : MonoBehaviour
                 CurrentTurn = "Black";
                 _input_handler.SwapHoverTiles();
             }
+        }
     }
 }
