@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public PlayerStoneColor current_players_turn = PlayerStoneColor.BLACK;
     public string CurrentTurn;
     bool _gameOver = false;
-
+    PlayerStoneColor? winningPlayer;
     public int TurnNumber = 0;
 
     InputHandler _input_handler;
@@ -57,16 +57,6 @@ public class GameManager : MonoBehaviour
 
         if (CheckWin())
         {
-            if (current_players_turn == PlayerStoneColor.BLACK)
-            {
-                CurrentTurn = "Black Wins!";
-                Debug.Log("Black Wins!");
-            }
-            else
-            {
-                CurrentTurn = "White Wins!";
-                Debug.Log("White Wins!");
-            }
             _gameOver = true;
             return;
         }
@@ -92,7 +82,20 @@ public class GameManager : MonoBehaviour
 
     private bool CheckWin()
     {
-        return CheckHorizontal() || CheckVertical() || CheckDiagonal();
+        if (CheckHorizontal() || CheckVertical() || CheckDiagonal())
+        {
+            if (winningPlayer == PlayerStoneColor.BLACK)
+            {
+                CurrentTurn = "Black Wins!";
+            }
+            else
+            {
+                winningPlayer = PlayerStoneColor.BLACK;
+                CurrentTurn = "White Wins!";
+            }
+            return true;
+        }
+        return false;
     }
     bool CheckHorizontal()
     {
@@ -114,6 +117,7 @@ public class GameManager : MonoBehaviour
             }
             if (counter == 5)
             {
+                winningPlayer = player;
                 return true;
             }
         }
@@ -139,6 +143,7 @@ public class GameManager : MonoBehaviour
             }
             if (counter == 5)
             {
+                winningPlayer = player;
                 return true;
             }
         }
@@ -164,6 +169,7 @@ public class GameManager : MonoBehaviour
             }
             if (counter == 5)
             {
+                winningPlayer = player;
                 return true;
             }
             counter = 0;
@@ -181,6 +187,7 @@ public class GameManager : MonoBehaviour
             }
             if (counter == 5)
             {
+                winningPlayer = player;
                 return true;
             }
             counter = 0;
@@ -198,6 +205,7 @@ public class GameManager : MonoBehaviour
             }
             if (counter == 5)
             {
+                winningPlayer = player;
                 return true;
             }
             counter = 0;
@@ -215,6 +223,7 @@ public class GameManager : MonoBehaviour
             }
             if (counter == 5)
             {
+                winningPlayer = player;
                 return true;
             }
         }
@@ -225,10 +234,30 @@ public class GameManager : MonoBehaviour
         CurrentTurn = "Black";
         _boardState.ResetBoard();
         _gameOver = false;
+        winningPlayer = null;
     }
 
     public void PlayPowerup()
     {
+        if (CheckWin())
+        {
+            if (current_players_turn == PlayerStoneColor.BLACK)
+            {
+                CurrentTurn = "Black Wins!";
+                Debug.Log("Black Wins!");
+            }
+            else
+            {
+                CurrentTurn = "White Wins!";
+                Debug.Log("White Wins!");
+            }
+            _gameOver = true;
+            return;
+        }
+        else
+        {
+            TurnNumber++;
+
             // Change player's turn after the move
             if (current_players_turn == PlayerStoneColor.BLACK)
             {
