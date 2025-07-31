@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class SwapColors : MonoBehaviour
 {
     public Dictionary<Vector3Int, BoardCell> SwapColor(
-        Dictionary<Vector3Int, BoardCell> input, int current_player)
+        Dictionary<Vector3Int, BoardCell> input)
     {
         Dictionary<Vector3Int, BoardCell> output = new();
 
@@ -22,20 +23,20 @@ public class SwapColors : MonoBehaviour
                     break;
             }
         }
+
+        GameObject.Find("GameController").GetComponent<GameManager>().PlayPowerup();
         return output;
     }
 
+    
 
-
-    public void testSwap()
+    public void onClick()
     {
         Debug.Log("swapping colors");
         Dictionary<Vector3Int, BoardCell> board_state = GameObject.Find("GameController").GetComponent<BoardState>().board_state;
-        GameObject.Find("GameController").GetComponent<BoardState>().board_state = SwapColor(board_state, 0);
-
-        GameObject.Find("Stone_Tilemap").GetComponent<DrawStones>().redraw_stones();
+        GameObject.Find("GameController").GetComponent<BoardState>().board_state = SwapColor(board_state);
+        GameObject.Find("GameController").GetComponent<PowerupManager>().cleanup();
         gameObject.GetComponent<Image>().enabled = false;
-        GameObject.Find("GameController").GetComponent<GameManager>().PlayPowerup();
     }
 
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public enum BoardCell{white, black, destroyed}
@@ -57,6 +58,8 @@ public class BoardState: MonoBehaviour
         }
 
     }
+
+
 
     public int getBoardSize()
     {

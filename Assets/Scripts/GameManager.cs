@@ -21,15 +21,18 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     BoardState _boardState;
-    PlayerStoneColor current_players_turn = PlayerStoneColor.BLACK;
+    public PlayerStoneColor current_players_turn = PlayerStoneColor.BLACK;
     public string CurrentTurn;
     bool _gameOver = false;
     PlayerStoneColor? winningPlayer;
     public int TurnNumber = 0;
 
+    InputHandler _input_handler;
+
     void Start()
     {
         _boardState = GameObject.Find("GameController").GetComponent<BoardState>();
+        _input_handler = GameObject.Find("GameController").GetComponent<InputHandler>();
 
         CurrentTurn = "Black";
     }
@@ -66,11 +69,13 @@ public class GameManager : MonoBehaviour
             {
                 current_players_turn = PlayerStoneColor.WHITE;
                 CurrentTurn = "White";
+                _input_handler.SwapHoverTiles();
             }
             else
             {
                 current_players_turn = PlayerStoneColor.BLACK;
                 CurrentTurn = "Black";
+                _input_handler.SwapHoverTiles();
             }
         }
     }
@@ -258,12 +263,13 @@ public class GameManager : MonoBehaviour
             {
                 current_players_turn = PlayerStoneColor.WHITE;
                 CurrentTurn = "White";
+                _input_handler.SwapHoverTiles();
             }
             else
             {
                 current_players_turn = PlayerStoneColor.BLACK;
                 CurrentTurn = "Black";
+                _input_handler.SwapHoverTiles();
             }
-        }
     }
 }
