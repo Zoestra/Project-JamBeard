@@ -18,7 +18,7 @@ public class ReduceBoard : MonoBehaviour
         if(board.reduceBoardSize())
         {
             grid.redrawGrid();
-            camera.orthographicSize -= 2;
+            // camera.orthographicSize -= 2;
 
             int boardSize = board.getBoardSize();
             int max  = boardSize / 2;

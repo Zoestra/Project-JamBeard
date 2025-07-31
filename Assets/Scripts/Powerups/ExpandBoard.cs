@@ -13,14 +13,14 @@ public class ExpandBoard : MonoBehaviour
         if(board.increaseBoardSize())
         {
             grid.redrawGrid();
-            if(camera.orthographicSize == 10)
-            {
-                camera.orthographicSize = 17;
-            }
-            else
-            {
-                camera.orthographicSize += 2;
-            }
+            // if(camera.orthographicSize == 10)
+            // {
+            //     camera.orthographicSize = 17;
+            // }
+            // else
+            // {
+            //     camera.orthographicSize += 2;
+            // }
         }
 
         GameObject.Find("GameController").GetComponent<GameManager>().PlayPowerup();

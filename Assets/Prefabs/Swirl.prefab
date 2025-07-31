@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3052332341962442318
+--- !u!1 &8895915629489129700
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3069135293765972562}
-  - component: {fileID: 2494602751010947095}
-  - component: {fileID: 4118905125796066678}
-  - component: {fileID: 4614814277979362764}
-  - component: {fileID: 6653338471078674799}
+  - component: {fileID: 7605402488809497429}
+  - component: {fileID: 7590619480261145941}
+  - component: {fileID: 7320266550697696840}
+  - component: {fileID: 7270897082741711115}
+  - component: {fileID: 7243604212965556641}
   m_Layer: 5
-  m_Name: Destroy
+  m_Name: Swirl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3069135293765972562
+--- !u!224 &7605402488809497429
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3052332341962442318}
+  m_GameObject: {fileID: 8895915629489129700}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -39,21 +39,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2494602751010947095
+--- !u!222 &7590619480261145941
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3052332341962442318}
+  m_GameObject: {fileID: 8895915629489129700}
   m_CullTransparentMesh: 1
---- !u!114 &4118905125796066678
+--- !u!114 &7320266550697696840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3052332341962442318}
+  m_GameObject: {fileID: 8895915629489129700}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4784354005443744366, guid: 5b705cdeb8e3e3f49be538671cabadf9, type: 3}
+  m_Sprite: {fileID: -4447304377561647873, guid: dc369ecca98ffb882bdeb0e451d5f35d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,13 +77,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4614814277979362764
+--- !u!114 &7270897082741711115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3052332341962442318}
+  m_GameObject: {fileID: 8895915629489129700}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -117,12 +117,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4118905125796066678}
+  m_TargetGraphic: {fileID: 7320266550697696840}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6653338471078674799}
-        m_TargetAssemblyTypeName: DestroyStones, Assembly-CSharp
+      - m_Target: {fileID: 7243604212965556641}
+        m_TargetAssemblyTypeName: Swirl, Assembly-CSharp
         m_MethodName: onClick
         m_Mode: 1
         m_Arguments:
@@ -133,15 +133,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6653338471078674799
+--- !u!114 &7243604212965556641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3052332341962442318}
+  m_GameObject: {fileID: 8895915629489129700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70bbdfcc19b07635f8cea3cdf8192ba2, type: 3}
+  m_Script: {fileID: 11500000, guid: beb4ac81d22c2da519a3303a4bbe5265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
