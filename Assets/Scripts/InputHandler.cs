@@ -66,19 +66,21 @@ public class InputHandler : MonoBehaviour
         int max = boardSize / 2;
         int min = -max;
 
-        if (mousePos.x < min || mousePos.x > max || mousePos.y < min || mousePos.y > max)
+        if (!_gameManager.GAMEOVER)
         {
-            if (
-                !_board.board_state.ContainsKey(mousePos))
+            if (mousePos.x < min || mousePos.x > max || mousePos.y < min || mousePos.y > max)
             {
-                tilemap.SetTile(previousTilePos, null); 
-                return;
+                if (
+                    !_board.board_state.ContainsKey(mousePos))
+                {
+                    tilemap.SetTile(previousTilePos, null); 
+                    return;
+                }
             }
-        }
 
-        if (
-                !mousePos.Equals(previousTilePos) &&
-                !_board.board_state.ContainsKey(mousePos))
+            if (
+                    !mousePos.Equals(previousTilePos) &&
+                    !_board.board_state.ContainsKey(mousePos))
             {
                 if (!_board.board_state.ContainsKey(previousTilePos))
                 {
@@ -88,8 +90,8 @@ public class InputHandler : MonoBehaviour
                 tilemap.SetTile(mousePos, HoverTile);
                 previousTilePos = mousePos;
             }
+        }
     }
-
     public void SwapHoverTiles()
     {
         switch (_gameManager.current_players_turn)
