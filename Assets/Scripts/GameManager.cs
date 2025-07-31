@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         _boardState = GameObject.Find("GameController").GetComponent<BoardState>();
         _input_handler = GameObject.Find("GameController").GetComponent<InputHandler>();
 
-        CurrentTurn = "Black";
+        NewGame();
     }
 
     // Update is called once per frame
@@ -237,6 +237,16 @@ public class GameManager : MonoBehaviour
         winningPlayer = null;
     }
 
+    public void NewGame()
+    {
+        CurrentTurn = "Black";
+        _boardState.ResetBoard();
+        _gameOver = false;
+        winningPlayer = null;
+        gameObject.GetComponent<PowerupManager>().StartRound();
+
+    }
+
     public void PlayPowerup()
     {
         if (CheckWin())
@@ -272,4 +282,5 @@ public class GameManager : MonoBehaviour
                 _input_handler.SwapHoverTiles();
             }
     }
+}
 }

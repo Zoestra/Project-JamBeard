@@ -1,11 +1,10 @@
-using UnityEngine;
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 using System.Linq;
-
-public class ApplyGravity:MonoBehaviour
+using UnityEngine.UI;
+public class Gravity : MonoBehaviour
 {
-    public Dictionary<Vector3Int, BoardCell> Gravity(Dictionary<Vector3Int, BoardCell> input, int current_player)
+    public Dictionary<Vector3Int, BoardCell> ApplyGravity(Dictionary<Vector3Int, BoardCell> input, int current_player)
         {
             BoardState board = GameObject.Find("GameController").GetComponent<BoardState>();
             int boardSize = board.getBoardSize();
@@ -27,12 +26,16 @@ public class ApplyGravity:MonoBehaviour
             return output;
     }
 
-    public void testGravity()
+    public void onClick()
     {
         Debug.Log("applying gravity");
         Dictionary<Vector3Int, BoardCell> board_state = GameObject.Find("GameController").GetComponent<BoardState>().board_state;
-        GameObject.Find("GameController").GetComponent<BoardState>().board_state = Gravity(board_state, 0);
+        GameObject.Find("GameController").GetComponent<BoardState>().board_state = ApplyGravity(board_state, 0);
         
-        GameObject.Find("Stone_Tilemap").GetComponent<DrawStones>().redraw_stones();
+        GameObject.Find("GameController").GetComponent<PowerupManager>().cleanup();
+        gameObject.GetComponent<Image>().enabled = false;
     }
+
+
+
 }
