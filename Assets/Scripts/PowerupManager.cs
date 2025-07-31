@@ -61,9 +61,9 @@ public class PowerupManager : MonoBehaviour
     }
 
     private void DrawPool(){
-        Vector3 position1 = new(){x=-14, y=3.5F , z=0};
-        Vector3 position2 = new(){x=-12.8F, y=.9F, z=0};
-        Vector3 position3 = new(){x=-15.4F, y=.9F, z=0};
+        Vector3 position1 = new(){x=-14, y=1.28F , z=0};
+        Vector3 position2 = new(){x=-12.51F, y=.38F, z=0};
+        Vector3 position3 = new(){x=-14.66F, y=-.82F, z=0};
         GeneratePool();
         GameObject powerup_1 = Instantiate(_prefabs[(int)Powerup_Pool[0]]);
         powerup_1.transform.parent = GameObject.Find("Canvas").transform;
