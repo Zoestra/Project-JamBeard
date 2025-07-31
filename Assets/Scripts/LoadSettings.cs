@@ -19,14 +19,14 @@ public class LoadSettings : MonoBehaviour
         if (isMovingToSettings)
         {
             // Check if the camera has reached the target position
-            if (Camera.main.transform.position.x >= 14)
+            if (Camera.main.transform.position.x >= 18)
             {
                 isMovingToSettings = false; // Stop moving the camera
             }
             else
             {
                 // Move the camera towards the target position
-                Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, new Vector3(14, 0, -10), Time.deltaTime * ChangeOverSpeed);
+                Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, new Vector3(18, 0, -10), Time.deltaTime * ChangeOverSpeed);
             }
         }
         if (isMovingToMainMenu)
