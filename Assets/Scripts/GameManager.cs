@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 public enum PlayerStoneColor
 {
     WHITE,
@@ -24,9 +25,11 @@ public class GameManager : MonoBehaviour
     BoardState _boardState;
     public PlayerStoneColor current_players_turn = PlayerStoneColor.BLACK;
     public string CurrentTurn;
-    bool _gameOver = false;
+    public bool GAMEOVER = false;
     PlayerStoneColor? winningPlayer;
     public int TurnNumber = 0;
+    public GameObject new_game_button_prefab;
+    private GameObject new_game_button;
     
     InputHandler _input_handler;
 
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void TakeTurnMove(Vector3Int moveTarget)
     {
-        if (_gameOver)
+        if (GAMEOVER)
         {
             Debug.Log("Disallow placing stones!");
             return;
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
 
         if (CheckWin())
         {
-            _gameOver = true;
+            EndGame();
             return;
         }
         else
@@ -234,7 +237,7 @@ public class GameManager : MonoBehaviour
     {
         CurrentTurn = "Black";
         _boardState.ResetBoard();
-        _gameOver = false;
+        GAMEOVER = false;
         winningPlayer = null;
     }
 
@@ -242,11 +245,21 @@ public class GameManager : MonoBehaviour
     {
         CurrentTurn = "Black";
         _boardState.ResetBoard();
-        _gameOver = false;
+        GAMEOVER = false;
         winningPlayer = null;
         gameObject.GetComponent<PowerupManager>().StartRound();
-
     }
+
+
+    private void EndGame()
+    {
+        Debug.Log("Game Won! ending game");
+        GAMEOVER = true;
+        new_game_button = Instantiate(new_game_button_prefab);
+        new_game_button.transform.SetParent(GameObject.Find("Canvas").transform);
+        
+    }
+
 
     public void PlayPowerup()
     {
@@ -262,7 +275,7 @@ public class GameManager : MonoBehaviour
                 CurrentTurn = "White Wins!";
                 Debug.Log("White Wins!");
             }
-            _gameOver = true;
+            GAMEOVER = true;
             return;
         }
         else
@@ -285,4 +298,4 @@ public class GameManager : MonoBehaviour
         }
     }
 }
-}
+

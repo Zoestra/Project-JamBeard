@@ -81,6 +81,11 @@ public class PowerupManager : MonoBehaviour
 
     public void PlacePowerup(Vector3Int target)
     {
+        if (_manager.GAMEOVER)
+        {
+            Debug.Log("Disallow placing stones!");
+            return;
+        }
         waiting_for_powerup = false;
         GameObject.Find("Destroy(Clone)").GetComponent<DestroyStones>().onPlaceStone(target);
         

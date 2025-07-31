@@ -8,4 +8,11 @@ public class RestartRound : MonoBehaviour
         gameManager.ResetGame();
         gameObject.GetComponent<Image>().enabled = false;
     }
+
+    public void NewGame()
+    {
+        GameManager gameManager = GameObject.Find("GameController").GetComponent<GameManager>();
+        gameManager.NewGame();
+        Destroy(gameObject);
+    }
 }
