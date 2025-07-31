@@ -9,17 +9,22 @@ public enum POWERUP
     REDUCE_BOARD,
     SHUFFLE_BOARD,
     RESET,
-    DESTROY
+    DESTROY,
+    GRAVITY,
+    SWIRL
 }
 
 public class PowerupManager : MonoBehaviour
 {
 
-    private POWERUP _current_powerup;
     public bool waiting_for_powerup = false;
     private BoardState _board;
     private GameManager _manager;
     private DrawStones _stones;
+    public List<POWERUP> Powerup_Pool;
+    private POWERUP _current_powerup;
+    [SerializeField]
+    private List<GameObject> PowerupPrefabs;
     
 
     
@@ -32,23 +37,38 @@ public class PowerupManager : MonoBehaviour
     }
 
 
+    private void GeneratePool()
+    {
+        Powerup_Pool = new();
+        
+        while (Powerup_Pool.Count < 3 )
+        {
+            int selection = UnityEngine.Random.Range((int)0, (int)7);
+            if ( !Powerup_Pool.Contains((POWERUP)selection))
+            {
+                Powerup_Pool.Add((POWERUP)selection);
+            }
+        }
+    }
+    
+
+    private void DrawPool(){
+        
+    }
+    
+
+    public void PlacePowerup(Vector3Int target)
+    {
+        waiting_for_powerup = false;
+        GameObject.Find("Destroy").GetComponent<DestroyStones>().onPlaceStone(target);
+        
+    }
+
     public void cleanup()
     {
         _stones.redraw_stones();
         _manager.PlayPowerup();
     }
 
-    public void PlacePowerup(Vector3Int target)
-    {
-        waiting_for_powerup = false;
-        // switch (_current_powerup)
-        // {
-        // case POWERUP.DESTROY: 
-        //     GameObject.Find("Destroy").GetComponent<DestroyStones>().onPlaceStone(target);
-        //     break;
-        // }           
-        GameObject.Find("Destroy").GetComponent<DestroyStones>().onPlaceStone(target);
-        
-    }
 
 }

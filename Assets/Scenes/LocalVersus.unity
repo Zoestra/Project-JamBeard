@@ -507,8 +507,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -469, y: 293}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -547, y: 292.78}
+  m_SizeDelta: {x: 238.52, y: 37.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714817741
 MonoBehaviour:
@@ -532,8 +532,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player's Turn
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f13ad8aa700cc717fab1eeb7d662c952, type: 2}
+  m_sharedMaterial: {fileID: -5833108721398778316, guid: f13ad8aa700cc717fab1eeb7d662c952, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -762,6 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d7e75657a3b3d4797a09d2aedaa690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current_players_turn: 1
   CurrentTurn: 
   TurnNumber: 0
 --- !u!82 &1060169345
@@ -861,6 +862,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1060169346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060169337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13f14c8bf73bae0ca4d890a75ceed39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waiting_for_powerup: 0
+  Powerup_Pool: 
+  PowerupPrefabs:
+  - {fileID: 5155736162211842587, guid: 3db1b2c19efe0b1cdb3e993dce5aacc7, type: 3}
+  - {fileID: 3809015173382863451, guid: 04cfc43a536871a15aa0ff1a5954b788, type: 3}
+  - {fileID: 662654365964275282, guid: ea54ec727a7adee63bd87fed029061b1, type: 3}
+  - {fileID: 8226046874787072870, guid: 5e35540e5b8e88a72ae80f0d466ad781, type: 3}
+  - {fileID: 8541582881253294856, guid: 2787535bc7e200648add786ab2a9e833, type: 3}
+  - {fileID: 3052332341962442318, guid: 082e6ef960c3147b98599f62bed38ead, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1073509643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1137,6 +1161,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2768180965437092852, guid: bd6946834f6e3a547b02d5224b67c593, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1060169345}
+    - targetCorrespondingSourceObject: {fileID: 2768180965437092852, guid: bd6946834f6e3a547b02d5224b67c593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1060169346}
   m_SourcePrefab: {fileID: 100100000, guid: bd6946834f6e3a547b02d5224b67c593, type: 3}
 --- !u!1 &1261626309
 GameObject:
@@ -1744,8 +1771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -469, y: 234}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -547, y: 244.53}
+  m_SizeDelta: {x: 102.81, y: 37.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1709933106
 MonoBehaviour:
@@ -1769,8 +1796,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Black
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f13ad8aa700cc717fab1eeb7d662c952, type: 2}
+  m_sharedMaterial: {fileID: -5833108721398778316, guid: f13ad8aa700cc717fab1eeb7d662c952, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2042,8 +2069,6 @@ RectTransform:
   - {fileID: 714817740}
   - {fileID: 1709933105}
   - {fileID: 493614984}
-  - {fileID: 1499393223}
-  - {fileID: 1105287434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2061,7 +2086,6 @@ SceneRoots:
   - {fileID: 1073509643}
   - {fileID: 1305889547}
   - {fileID: 1950173535}
-  - {fileID: 1373029468}
   - {fileID: 1637418656}
   - {fileID: 1846771567}
   - {fileID: 1261626311}
